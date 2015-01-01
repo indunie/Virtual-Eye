@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	 android:layout_width="wrap_content" 
+	 android:layout_height="wrap_content"
+	 android:background="@drawable/sea">
+ 
+	<ImageView android:id="@+id/ImageView01"
+	 android:layout_width="wrap_content" 
+	 android:layout_height="wrap_content"
+	 android:layout_centerHorizontal="true" />
+	 
+	 <ScrollView android:id="@+id/ScrollView01"
+	 android:layout_width="fill_parent" 
+	 android:layout_below="@+id/ImageView01"
+	 android:layout_height="100px">
+ 
+		 <TextView android:text="@+id/TextView01" 
+		 android:id="@+id/TextView01"
+		 android:layout_width="wrap_content" 
+		 android:layout_height="wrap_content" />
+ 
+ 	</ScrollView>
+
+	 <Button
+	     android:id="@+id/cancelButton2"
+	     android:layout_width="115dp"
+	     android:layout_height="35dp"
+	     android:layout_alignParentBottom="true"
+	     android:layout_centerHorizontal="true"
+	     android:background="@drawable/cancel_xml" />
+	 
+</RelativeLayout>

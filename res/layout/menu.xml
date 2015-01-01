@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- Menu Item Declaration -->
+
+	<item android:title="ERAS" android:id="@+id/ERAS"
+	    android:icon="@drawable/topright">
+		<menu>
+	        <item android:id="@+id/DUTCH_ERA" android:title="Dutch Era"></item>
+	        <item android:id="@+id/BRITISH_ERA" android:title="British Era"></item>
+	    	<item android:id="@+id/PORTUGUESE_ERA" android:title="Portuguese Era"></item>
+	    </menu>    
+	</item>
+	
+	<item android:title="SETTINGS" android:id="@+id/SETTINGS"
+	        android:icon="@drawable/bottomleft">
+	        <!-- Sub menu Declaration  of MENU_VIEW_AS menu--> 
+	    <menu>
+	        <item android:id="@+id/SOUNDS" android:title="Sounds">
+	            <menu>
+	     			<item android:id="@+id/SOUNDS_ON" android:title="On"></item>
+	        		<item android:id="@+id/SOUNDS_OFF" android:title="Off"></item>
+	   			</menu>
+	        </item>
+	        <item android:id="@+id/ANNOTATION" android:title="Annotation">
+	            <menu>
+	     			<item android:id="@+id/ANNOTATION_ON" android:title="On"></item>
+	        		<item android:id="@+id/ANNOTATION_OFF" android:title="Off"></item>
+	   			</menu>
+	        </item>
+	    </menu>    
+	</item>
+	
+	<item android:title="MANNUAL NAVIGATION" android:id="@+id/MANNUAL_NAVIGATION"
+	        android:icon="@drawable/topleft">
+	        <!-- Sub menu Declaration  of MENU_VIEW_AS menu--> 
+	    <menu>
+	        <item android:id="@+id/LEFT" android:title="Left"></item>
+	        <item android:id="@+id/RIGHT" android:title="Right"></item>
+	    	<item android:id="@+id/FORWARD" android:title="Forward"></item>
+	    	<item android:id="@+id/BACKWARD" android:title="Backward"></item>
+	    </menu>    
+	</item>
+	    
+	<item android:title="ZOOM" android:id="@+id/ZOOM"
+	        android:icon="@drawable/bottomright">
+	      <!-- Sub menu Declaration  of MENU_ZOOM menu--> 
+	    <menu>
+	     <item android:id="@+id/IN" android:title="in"></item>
+	        <item android:id="@+id/OUT" android:title="out"></item>
+	    </menu>
+   </item>
+
+</menu>

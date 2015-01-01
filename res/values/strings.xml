@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<resources>
+    <string name="app_name">Virtual Eye</string>
+    <string name="credits">Welcome to the credits page</string>
+    <string name="help">Welcome to the help page</string>
+</resources>

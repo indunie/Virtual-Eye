@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	xmlns:pj="http://schemas.android.com/apk/res/virtualeye.virtual.main"
+	xmlns:bm="com.virtualeye.gameconsole"
+  	android:orientation="vertical"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent"
+  	android:background="@drawable/splash1">
+
+<RelativeLayout 
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center"
+>
+
+    <ImageView
+        android:id="@+id/theView1"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:background="@drawable/part1" />
+
+<ImageView
+    android:id="@+id/theView2"
+    android:layout_width="wrap_content"
+    android:layout_height="fill_parent"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:background="@drawable/part2" />
+
+</RelativeLayout>    
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+	<array name="entries">
+		<item>@drawable/ship6</item>	
+		<item>@drawable/ship7</item>		
+		<item>@drawable/ship8</item>
+		<item>@drawable/ship9</item>	 		
+		<item>@drawable/ship10</item>							
+	</array>	
+</resources>
