@@ -45,6 +45,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ZoomControls;
+import android.os.Build;
 
 public class MjpegStreamActivity extends Activity implements SensorEventListener{
 
@@ -97,6 +98,45 @@ public class MjpegStreamActivity extends Activity implements SensorEventListener
         
         //Socket connection and Buffer creation
         try{
+        	 if(Build.VERSION.SDK_INT>Build.VERSION_CODES.GINGERBREAD_MR1){
+        	   
+        	new Thread(new Runnable(){
+  			  public void run(){
+  				  try {
+  					System.out.println("In ICS");	  
+  				 //socket = new Socket(addr,27021);
+  				addr = InetAddress.getByName(inetaddr);
+  	     		socket = new Socket(addr, 27021);
+  	     		//socket1 = new Socket(addr, 27017);
+  	     		socket.setTcpNoDelay(true);
+  	     		out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
+  	     		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+  				 
+  				 System.out.println("ICS socket connect 27021");
+  				
+						socket.setTcpNoDelay(true);
+  				  } catch (SocketException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+  				 //System.out.println("ICS Getting input stream");
+			  		try {
+						out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
+					
+			  		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			  		} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+  			  }
+  			  }).start();
+        	
+        	 }
+        	 else{
+        	
         	addr = InetAddress.getByName(inetaddr);
      		socket = new Socket(addr, 27021);
      		//socket1 = new Socket(addr, 27017);
@@ -104,7 +144,7 @@ public class MjpegStreamActivity extends Activity implements SensorEventListener
      		out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())),true);
      		in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
      		//out1 = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket1.getOutputStream())),true);
-     	}
+     	}}
         catch (IOException e) {
      			e.printStackTrace();
      	}
@@ -254,14 +294,30 @@ public class MjpegStreamActivity extends Activity implements SensorEventListener
 			}
 		});
         */
-        try {
-			mv.setSource(MjpegInputStream.read(URL));
-		} catch (SocketException e) {
-			Log.v("SockEx","Cannot connect to server");
-		}
-        mv.setDisplayMode(MjpegView.SIZE_FULLSCREEN);
-        mv.showFps(false);
-        
+        try{
+        if(Build.VERSION.SDK_INT>Build.VERSION_CODES.GINGERBREAD_MR1){
+            
+            new Thread(new Runnable(){public void run(){
+      		  System.out.println("reading data from mjpeg input stream ics");
+    			try {
+					mv.setSource(MjpegInputStream.read(URL));
+				} catch (SocketException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    			mv.setDisplayMode(MjpegView.SIZE_FULLSCREEN);
+    	        mv.showFps(false);
+            }}).start();
+            	
+            }else{
+            
+            mv.setSource(MjpegInputStream.read(URL));
+            mv.setDisplayMode(MjpegView.SIZE_FULLSCREEN);
+            mv.showFps(false);
+            }}
+        catch (IOException e) {
+     			e.printStackTrace();
+     	}
         
         //
         
